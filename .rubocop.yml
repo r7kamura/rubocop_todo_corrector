@@ -6,6 +6,9 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.0
 
+Metrics:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
