@@ -3,7 +3,7 @@
 require 'pathname'
 
 module RubocopTodoCorrector
-  class GemsInstaller
+  class BundleInstaller
     class << self
       # @param [Hash] gem_specifications
       # @param [String] temporary_gemfile_path

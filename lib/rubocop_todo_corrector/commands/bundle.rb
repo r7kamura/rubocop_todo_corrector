@@ -31,7 +31,7 @@ module RubocopTodoCorrector
       end
 
       def call
-        GemsInstaller.call(
+        BundleInstaller.call(
           gem_specifications: gem_specifications,
           temporary_gemfile_path: @temporary_gemfile_path
         )
