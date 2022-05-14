@@ -7,7 +7,7 @@ module RubocopTodoCorrector
   class Cli < ::Thor
     desc 'bundle', 'Install gems to run RuboCop on this project.'
     def bundle
-      # TODO
+      Commands::Bundle.call(configuration_path: '.rubocop.yml')
     end
   end
 end
