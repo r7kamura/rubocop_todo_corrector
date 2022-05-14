@@ -9,4 +9,5 @@ module RubocopTodoCorrector
   autoload :GemNamesDetector, 'rubocop_todo_corrector/gem_names_detector'
   autoload :GemVersionDetector, 'rubocop_todo_corrector/gem_version_detector'
   autoload :RubocopTodoParser, 'rubocop_todo_corrector/rubocop_todo_parser'
+  autoload :RubocopTodoSectionParser, 'rubocop_todo_corrector/rubocop_todo_section_parser'
 end

@@ -38,10 +38,7 @@ module RubocopTodoCorrector
     # @return [Array<Hash>]
     def cops
       cop_sections.map do |cop_section|
-        {
-          auto_correctable: cop_section.include?('# Cop supports --auto-correct.'),
-          name: cop_section[/(#{COP_NAME_LINE_REGEXP})/, 'cop_name']
-        }
+        RubocopTodoSectionParser.call(content: cop_section)
       end
     end
 
