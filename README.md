@@ -23,6 +23,6 @@ gem install rubocop_todo_corrector
 ```console
 $ rubocop_todo_corrector --help
 Commands:
+  rubocop_todo_corrector bundle          # Run `bundle install` to install RuboCop related gems.
   rubocop_todo_corrector help [COMMAND]  # Describe available commands or one specific command
-  rubocop_todo_corrector install         # Install gems to run RuboCop on this project.
 ```
