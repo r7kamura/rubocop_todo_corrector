@@ -7,17 +7,37 @@ module RubocopTodoCorrector
     class Bundle
       class << self
         # @param [String] configuration_path
-        def call(configuration_path:)
-          new(configuration_path: configuration_path).call
+        # @param [String] gemfile_lock_path
+        def call(
+          configuration_path:,
+          gemfile_lock_path:
+        )
+          new(
+            configuration_path: configuration_path,
+            gemfile_lock_path: gemfile_lock_path
+          ).call
         end
       end
 
-      def initialize(configuration_path:)
+      def initialize(
+        configuration_path:,
+        gemfile_lock_path:
+      )
         @configuration_path = configuration_path
+        @gemfile_lock_path = gemfile_lock_path
       end
 
       def call
-        p gem_names
+        specs = gem_names.map do |gem_name|
+          {
+            gem_name: gem_name,
+            gem_version: GemVersionDetector.call(
+              gem_name: gem_name,
+              gemfile_lock_path: @gemfile_lock_path
+            )
+          }
+        end
+        p specs
       end
 
       private
