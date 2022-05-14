@@ -22,7 +22,7 @@ module RubocopTodoCorrector
       )
     end
 
-    desc 'pick', 'Pick a auto-correctable Cop from .rubocop_todo.yml.'
+    desc 'pick', 'Pick an auto-correctable Cop from .rubocop_todo.yml.'
     option(
       :mode,
       default: 'random',
