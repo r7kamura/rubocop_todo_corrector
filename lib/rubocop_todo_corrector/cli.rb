@@ -5,9 +5,9 @@ require 'thor'
 module RubocopTodoCorrector
   # Provide CLI sub-commands.
   class Cli < ::Thor
-    desc 'bundle', 'Install gems to run RuboCop on this project.'
-    def bundle
-      Commands::Bundle.call(
+    desc 'install', 'Install gems to run RuboCop on this project.'
+    def install
+      Commands::Install.call(
         configuration_path: '.rubocop.yml',
         gemfile_lock_path: 'Gemfile.lock'
       )

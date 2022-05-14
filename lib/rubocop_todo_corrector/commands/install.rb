@@ -4,7 +4,7 @@ require 'yaml'
 
 module RubocopTodoCorrector
   module Commands
-    class Bundle
+    class Install
       class << self
         # @param [String] configuration_path
         # @param [String] gemfile_lock_path

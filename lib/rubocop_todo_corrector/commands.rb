@@ -2,6 +2,6 @@
 
 module RubocopTodoCorrector
   module Commands
-    autoload :Bundle, 'rubocop_todo_corrector/commands/bundle'
+    autoload :Install, 'rubocop_todo_corrector/commands/install'
   end
 end
