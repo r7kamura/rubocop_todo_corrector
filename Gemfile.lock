@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     rubocop_todo_corrector (0.1.0)
+      thor
 
 GEM
   remote: https://rubygems.org/
@@ -44,6 +45,7 @@ GEM
     rubocop-rspec (2.10.0)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
+    thor (1.2.1)
     unicode-display_width (2.1.0)
 
 PLATFORMS
