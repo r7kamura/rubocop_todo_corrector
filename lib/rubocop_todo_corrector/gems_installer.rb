@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'bundler'
-
 module RubocopTodoCorrector
   class GemsInstaller
     class << self
