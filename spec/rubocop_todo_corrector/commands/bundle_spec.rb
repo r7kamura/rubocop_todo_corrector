@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopTodoCorrector::Commands::Install do
+RSpec.describe RubocopTodoCorrector::Commands::Bundle do
   describe '#call' do
     subject do
       instance.call
