@@ -20,4 +20,9 @@ gem install rubocop_todo_corrector
 
 ## Usage
 
-TODO: Write usage instructions here
+```console
+$ rubocop_todo_corrector --help
+Commands:
+  rubocop_todo_corrector help [COMMAND]  # Describe available commands or one specific command
+  rubocop_todo_corrector install         # Install gems to run RuboCop on this project.
+```
