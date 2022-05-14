@@ -1,5 +1,7 @@
 # RubocopTodoCorrector
 
+[![test](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml/badge.svg)](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml)
+
 Auto-correct offenses defined in .rubocop_todo.yml.
 
 ## Installation
