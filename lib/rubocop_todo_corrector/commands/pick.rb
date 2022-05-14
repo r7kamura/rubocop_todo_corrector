@@ -25,11 +25,11 @@ module RubocopTodoCorrector
       def call
         check_rubocop_todo_existence
         result = RubocopTodoParser.call(content: rubocop_todo_content)
-        auto_correcable_cops = result[:cops].select do |cop|
+        auto_correctable_cops = result[:cops].select do |cop|
           cop[:auto_correctable]
         end
-        auto_correcable_cop = auto_correcable_cops.sample
-        auto_correcable_cop&.[](:name)
+        auto_correctable_cop = auto_correctable_cops.sample
+        auto_correctable_cop&.[](:name)
       end
 
       private
