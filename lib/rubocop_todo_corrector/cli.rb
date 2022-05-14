@@ -17,6 +17,7 @@ module RubocopTodoCorrector
     desc 'generate', 'Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.'
     def generate
       Commands::Generate.call(
+        rubocop_todo_path: '.rubocop_todo.yml',
         temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end
