@@ -6,41 +6,67 @@ module RubocopTodoCorrector
   module Commands
     class Pick
       class << self
+        # @param [String] mode
         # @param [String] rubocop_todo_path
         def call(
+          mode:,
           rubocop_todo_path:
         )
           new(
+            mode: mode,
             rubocop_todo_path: rubocop_todo_path
           ).call
         end
       end
 
       def initialize(
+        mode:,
         rubocop_todo_path:
       )
+        @mode = mode
         @rubocop_todo_path = rubocop_todo_path
       end
 
       def call
         check_rubocop_todo_existence
-        result = RubocopTodoParser.call(content: rubocop_todo_content)
-        auto_correctable_cops = result[:cops].select do |cop|
-          cop[:auto_correctable]
-        end
-        auto_correctable_cop = auto_correctable_cops.sample
-        auto_correctable_cop&.[](:name)
+        picked_cop&.[](:name)
       end
 
       private
+
+      # @return [Array<Hash>]
+      def auto_correctable_cops
+        rubocop_todo[:cops].select do |cop|
+          cop[:auto_correctable]
+        end
+      end
 
       def check_rubocop_todo_existence
         raise "#{rubocop_todo_pathname.to_s.inspect} does not exist." unless rubocop_todo_pathname.exist?
       end
 
-      # @return [Array<Hash>]
-      def cops
-        RubocopTodoParser.call(content: rubocop_todo_content)[:cops]
+      # @return [Hash, nil]
+      def picked_cop
+        case @mode
+        when 'first'
+          auto_correctable_cops.first
+        when 'last'
+          auto_correctable_cops.last
+        when 'least_occured'
+          auto_correctable_cops.min_by do |cop|
+            cop[:offenses_count]
+          end
+        when 'most_occured'
+          auto_correctable_cops.max_by do |cop|
+            cop[:offenses_count]
+          end
+        else
+          auto_correctable_cops.sample
+        end
+      end
+
+      def rubocop_todo
+        RubocopTodoParser.call(content: rubocop_todo_content)
       end
 
       # @return [String]

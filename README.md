@@ -28,3 +28,38 @@ Commands:
   rubocop_todo_corrector help [COMMAND]  # Describe available commands or one specific command
   rubocop_todo_corrector pick            # Pick a auto-correctable Cop from .rubocop_todo.yml.
 ```
+
+### bundle
+
+```console
+$ rubocop_todo_corrector help bundle
+Usage:
+  rubocop_todo_corrector bundle
+
+Run `bundle install` to install RuboCop related gems.
+```
+
+### generate
+
+```console
+$ rubocop_todo_corrector help generate
+Usage:
+  rubocop_todo_corrector generate
+
+Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
+```
+
+### pick
+
+```console
+$ rubocop_todo_corrector help pick
+Usage:
+  rubocop_todo_corrector pick
+
+Options:
+  [--mode=MODE]
+                 # Default: random
+                 # Possible values: first, last, least_occured, most_occured, random
+
+Pick a auto-correctable Cop from .rubocop_todo.yml.
+```

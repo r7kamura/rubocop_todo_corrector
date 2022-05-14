@@ -19,7 +19,8 @@ module RubocopTodoCorrector
     def call
       {
         auto_correctable: auto_correctable?,
-        name: name
+        name: name,
+        offenses_count: offenses_count
       }
     end
 
@@ -33,6 +34,14 @@ module RubocopTodoCorrector
     # @return [String, nil]
     def name
       @content[/(#{RubocopTodoParser::COP_NAME_LINE_REGEXP})/, 'cop_name']
+    end
+
+    # @return [Integer, nil]
+    def offenses_count
+      @content[
+        /^# Offense count: (?<offenses_count>\d+)$/,
+        'offenses_count'
+      ]&.to_i
     end
   end
 end

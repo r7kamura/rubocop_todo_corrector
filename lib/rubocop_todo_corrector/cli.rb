@@ -23,8 +23,21 @@ module RubocopTodoCorrector
     end
 
     desc 'pick', 'Pick a auto-correctable Cop from .rubocop_todo.yml.'
+    option(
+      :mode,
+      default: 'random',
+      enum: %w[
+        first
+        last
+        least_occured
+        most_occured
+        random
+      ],
+      type: :string
+    )
     def pick
       puts Commands::Pick.call(
+        mode: options[:mode],
         rubocop_todo_path: '.rubocop_todo.yml'
       )
     end

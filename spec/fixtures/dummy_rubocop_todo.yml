@@ -6,13 +6,26 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+# Offense count: 1
 # Configuration parameters: IgnoredMethods.
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'foo.rb'
 
+# Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: Mode.
 Style/StringConcatenation:
   Exclude:
+    - 'foo.rb'
+    - 'bar.rb'
+    - 'baz.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
+# SupportedStyles: single_quotes, double_quotes
+Style/StringLiterals:
+  Exclude:
+    - 'foo.rb'
     - 'bar.rb'

@@ -4,8 +4,13 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
   describe '.call' do
     subject do
       described_class.call(
+        mode: mode,
         rubocop_todo_path: rubocop_todo_path
       )
+    end
+
+    let(:mode) do
+      'first'
     end
 
     let(:rubocop_todo_path) do
@@ -22,7 +27,43 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
     end
 
-    context 'with valid condition' do
+    context 'with mode first' do
+      it 'returns cop name' do
+        is_expected.to eq(
+          'Style/StringConcatenation'
+        )
+      end
+    end
+
+    context 'with mode last' do
+      let(:mode) do
+        'last'
+      end
+
+      it 'returns cop name' do
+        is_expected.to eq(
+          'Style/StringLiterals'
+        )
+      end
+    end
+
+    context 'with mode least_occured' do
+      let(:mode) do
+        'least_occured'
+      end
+
+      it 'returns cop name' do
+        is_expected.to eq(
+          'Style/StringLiterals'
+        )
+      end
+    end
+
+    context 'with mode most_occured' do
+      let(:mode) do
+        'most_occured'
+      end
+
       it 'returns cop name' do
         is_expected.to eq(
           'Style/StringConcatenation'
