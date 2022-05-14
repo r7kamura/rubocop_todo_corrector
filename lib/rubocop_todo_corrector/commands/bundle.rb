@@ -6,27 +6,35 @@ module RubocopTodoCorrector
       class << self
         # @param [String] configuration_path
         # @param [String] gemfile_lock_path
+        # @param [String] temporary_gemfile_path
         def call(
           configuration_path:,
-          gemfile_lock_path:
+          gemfile_lock_path:,
+          temporary_gemfile_path:
         )
           new(
             configuration_path: configuration_path,
-            gemfile_lock_path: gemfile_lock_path
+            gemfile_lock_path: gemfile_lock_path,
+            temporary_gemfile_path: temporary_gemfile_path
           ).call
         end
       end
 
       def initialize(
         configuration_path:,
-        gemfile_lock_path:
+        gemfile_lock_path:,
+        temporary_gemfile_path:
       )
         @configuration_path = configuration_path
         @gemfile_lock_path = gemfile_lock_path
+        @temporary_gemfile_path = temporary_gemfile_path
       end
 
       def call
-        GemsInstaller.call(gem_specifications: gem_specifications)
+        GemsInstaller.call(
+          gem_specifications: gem_specifications,
+          temporary_gemfile_path: @temporary_gemfile_path
+        )
       end
 
       private

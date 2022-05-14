@@ -9,7 +9,8 @@ module RubocopTodoCorrector
     def bundle
       Commands::Bundle.call(
         configuration_path: '.rubocop.yml',
-        gemfile_lock_path: 'Gemfile.lock'
+        gemfile_lock_path: 'Gemfile.lock',
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end
   end

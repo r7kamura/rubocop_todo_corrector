@@ -9,7 +9,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Bundle do
     let(:instance) do
       described_class.new(
         configuration_path: 'spec/fixtures/dummy_rubocop.yml',
-        gemfile_lock_path: 'spec/fixtures/dummy_gemfile.lock'
+        gemfile_lock_path: 'spec/fixtures/dummy_gemfile.lock',
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end
 
@@ -19,9 +20,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Bundle do
 
     it 'install gems' do
       subject
-      expect(Kernel).to have_received(:system).with(
-        'gem install --no-document rubocop:1.29.1 rubocop-rake:0.6.0 rubocop-rspec:2.10.0'
-      )
+      expect(Kernel).to have_received(:system).with('bundle install')
     end
   end
 end
