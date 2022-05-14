@@ -1,10 +1,9 @@
-name: Ruby
+name: test
 
 on:
   push:
     branches:
       - main
-
   pull_request:
 
 jobs:
@@ -15,7 +14,6 @@ jobs:
       matrix:
         ruby:
           - '3.1.2'
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby
