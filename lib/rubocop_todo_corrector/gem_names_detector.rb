@@ -3,7 +3,7 @@
 require 'yaml'
 
 module RubocopTodoCorrector
-  class GemDetector
+  class GemNamesDetector
     class << self
       # @param [String] configuration_path
       # @return [Array<String>]

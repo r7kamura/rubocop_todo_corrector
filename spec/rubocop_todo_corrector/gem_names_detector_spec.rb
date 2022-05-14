@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RubocopTodoCorrector::GemDetector do
+RSpec.describe RubocopTodoCorrector::GemNamesDetector do
   describe '.call' do
     subject do
       described_class.call(

@@ -24,7 +24,7 @@ module RubocopTodoCorrector
 
       # @return [Array<String>]
       def gem_names
-        GemDetector.call(configuration_path: @configuration_path)
+        GemNamesDetector.call(configuration_path: @configuration_path)
       end
     end
   end
