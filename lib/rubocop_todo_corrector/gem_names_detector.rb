@@ -5,15 +5,15 @@ require 'yaml'
 module RubocopTodoCorrector
   class GemNamesDetector
     class << self
-      # @param [String] configuration_path
+      # @param [String] rubocop_configuration_path
       # @return [Array<String>]
-      def call(configuration_path:)
-        new(configuration_path: configuration_path).call
+      def call(rubocop_configuration_path:)
+        new(rubocop_configuration_path: rubocop_configuration_path).call
       end
     end
 
-    def initialize(configuration_path:)
-      @configuration_path = configuration_path
+    def initialize(rubocop_configuration_path:)
+      @rubocop_configuration_path = rubocop_configuration_path
     end
 
     def call
@@ -24,7 +24,7 @@ module RubocopTodoCorrector
 
     # @return [Hash]
     def configuration_hash
-      ::YAML.load_file(@configuration_path)
+      ::YAML.load_file(@rubocop_configuration_path)
     end
 
     # @return [Array<String>]

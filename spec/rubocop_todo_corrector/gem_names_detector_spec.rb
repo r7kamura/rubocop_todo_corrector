@@ -4,7 +4,7 @@ RSpec.describe RubocopTodoCorrector::GemNamesDetector do
   describe '.call' do
     subject do
       described_class.call(
-        configuration_path: 'spec/fixtures/dummy_rubocop.yml'
+        rubocop_configuration_path: 'spec/fixtures/dummy_rubocop.yml'
       )
     end
 

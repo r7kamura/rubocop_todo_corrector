@@ -4,16 +4,16 @@ module RubocopTodoCorrector
   module Commands
     class Bundle
       class << self
-        # @param [String] configuration_path
+        # @param [String] rubocop_configuration_path
         # @param [String] gemfile_lock_path
         # @param [String] temporary_gemfile_path
         def call(
-          configuration_path:,
+          rubocop_configuration_path:,
           gemfile_lock_path:,
           temporary_gemfile_path:
         )
           new(
-            configuration_path: configuration_path,
+            rubocop_configuration_path: rubocop_configuration_path,
             gemfile_lock_path: gemfile_lock_path,
             temporary_gemfile_path: temporary_gemfile_path
           ).call
@@ -21,11 +21,11 @@ module RubocopTodoCorrector
       end
 
       def initialize(
-        configuration_path:,
+        rubocop_configuration_path:,
         gemfile_lock_path:,
         temporary_gemfile_path:
       )
-        @configuration_path = configuration_path
+        @rubocop_configuration_path = rubocop_configuration_path
         @gemfile_lock_path = gemfile_lock_path
         @temporary_gemfile_path = temporary_gemfile_path
       end
@@ -43,7 +43,7 @@ module RubocopTodoCorrector
       def gem_names
         [
           'rubocop',
-          *GemNamesDetector.call(configuration_path: @configuration_path)
+          *GemNamesDetector.call(rubocop_configuration_path: @rubocop_configuration_path)
         ]
       end
 
