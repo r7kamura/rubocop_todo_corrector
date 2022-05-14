@@ -35,7 +35,12 @@ module RubocopTodoCorrector
     private
 
     def bundle_install
-      ::Kernel.system('bundle install')
+      ::Kernel.system(bundle_install_command)
+    end
+
+    # @return [String]
+    def bundle_install_command
+      %(bundle install --gemfile="#{@temporary_gemfile_path}")
     end
 
     # @return [String]
