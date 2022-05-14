@@ -21,5 +21,12 @@ module RubocopTodoCorrector
         temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end
+
+    desc 'pick', 'Pick a auto-correctable Cop from .rubocop_todo.yml.'
+    def pick
+      puts Commands::Pick.call(
+        rubocop_todo_path: '.rubocop_todo.yml'
+      )
+    end
   end
 end

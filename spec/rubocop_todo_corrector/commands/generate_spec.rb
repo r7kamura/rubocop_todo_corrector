@@ -14,7 +14,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Generate do
     end
 
     let(:rubocop_todo_path) do
-      'spec/fixtures/rubocop_todo.yml'
+      'spec/fixtures/dummy_rubocop_todo.yml'
     end
 
     context 'without existent .rubocop_todo.yml' do

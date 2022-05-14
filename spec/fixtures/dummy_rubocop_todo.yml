@@ -10,3 +10,9 @@
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'foo.rb'
+
+# Cop supports --auto-correct.
+# Configuration parameters: Mode.
+Style/StringConcatenation:
+  Exclude:
+    - 'bar.rb'
