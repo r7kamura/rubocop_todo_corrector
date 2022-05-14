@@ -45,10 +45,7 @@ module RubocopTodoCorrector
       def rubocop_command_from_todo
         return unless rubocop_todo_pathname.exist?
 
-        rubocop_todo_content[
-          /`(.+)`/,
-          1
-        ]
+        RubocopTodoParser.call(content: rubocop_todo_content)[:previous_rubocop_command]
       end
 
       # @return [String]
