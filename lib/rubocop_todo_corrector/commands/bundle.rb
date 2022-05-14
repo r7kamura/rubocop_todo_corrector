@@ -28,7 +28,22 @@ module RubocopTodoCorrector
       end
 
       def call
-        specs = gem_names.map do |gem_name|
+        GemsInstaller.call(gem_specifications: gem_specifications)
+      end
+
+      private
+
+      # @return [Array<String>]
+      def gem_names
+        [
+          'rubocop',
+          *GemNamesDetector.call(configuration_path: @configuration_path)
+        ]
+      end
+
+      # @return [Array<Hash>]
+      def gem_specifications
+        gem_names.map do |gem_name|
           {
             gem_name: gem_name,
             gem_version: GemVersionDetector.call(
@@ -37,14 +52,6 @@ module RubocopTodoCorrector
             )
           }
         end
-        p specs
-      end
-
-      private
-
-      # @return [Array<String>]
-      def gem_names
-        GemNamesDetector.call(configuration_path: @configuration_path)
       end
     end
   end

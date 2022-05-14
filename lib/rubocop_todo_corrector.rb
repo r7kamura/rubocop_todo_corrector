@@ -7,4 +7,5 @@ module RubocopTodoCorrector
   autoload :Commands, 'rubocop_todo_corrector/commands'
   autoload :GemNamesDetector, 'rubocop_todo_corrector/gem_names_detector'
   autoload :GemVersionDetector, 'rubocop_todo_corrector/gem_version_detector'
+  autoload :GemsInstaller, 'rubocop_todo_corrector/gems_installer'
 end
