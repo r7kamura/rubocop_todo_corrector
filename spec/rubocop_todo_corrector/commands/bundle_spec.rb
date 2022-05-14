@@ -17,7 +17,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Bundle do
     it 'install gems' do
       subject
       expect(Kernel).to have_received(:system).with(
-        'bundle install --gemfile="tmp/Gemfile_rubocop_todo_corrector.rb"'
+        { 'BUNDLE_GEMFILE' => 'tmp/Gemfile_rubocop_todo_corrector.rb' },
+        'bundle install'
       )
     end
   end
