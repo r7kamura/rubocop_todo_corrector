@@ -28,7 +28,9 @@ module RubocopTodoCorrector
 
     # @return [Boolean]
     def auto_correctable?
-      @content.include?('# Cop supports --auto-correct.')
+      @content.include?('# Cop supports --auto-correct.') ||
+        @content.include?('# Cop supports safe auto-correction.') ||
+        @content.include?('# Cop supports unsafe auto-correction.')
     end
 
     # @return [String, nil]
