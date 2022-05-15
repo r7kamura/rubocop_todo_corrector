@@ -4,6 +4,7 @@ PATH
     rubocop_todo_corrector (0.1.0)
       bundler
       thor
+      yard
 
 GEM
   remote: https://rubygems.org/
@@ -48,6 +49,9 @@ GEM
     ruby-progressbar (1.11.0)
     thor (1.2.1)
     unicode-display_width (2.1.0)
+    webrick (1.7.0)
+    yard (0.9.27)
+      webrick (~> 1.7.0)
 
 PLATFORMS
   x86_64-linux

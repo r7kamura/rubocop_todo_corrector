@@ -14,6 +14,19 @@ module RubocopTodoCorrector
       )
     end
 
+    desc 'describe', 'Output Markdown description for specified cop.'
+    option(
+      :cop_name,
+      type: :string,
+      required: true
+    )
+    def describe
+      Commands::Describe.call(
+        cop_name: options[:cop_name],
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
+      )
+    end
+
     desc 'generate', 'Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.'
     def generate
       Commands::Generate.call(
