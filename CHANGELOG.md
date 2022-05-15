@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Add `correct` command.
+
 ### Changed
 
 - Improve description on no named example.

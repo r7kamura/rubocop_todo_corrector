@@ -14,6 +14,13 @@ module RubocopTodoCorrector
       )
     end
 
+    desc 'correct', 'Run `rubocop --auto-correct-all`.'
+    def correct
+      Commands::Correct.call(
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
+      )
+    end
+
     desc 'describe', 'Output Markdown description for specified cop.'
     option(
       :cop_name,
