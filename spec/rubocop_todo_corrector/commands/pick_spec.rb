@@ -67,9 +67,9 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
     end
 
-    context 'with mode least_occured' do
+    context 'with mode least_occurred' do
       let(:mode) do
-        'least_occured'
+        'least_occurred'
       end
 
       it 'returns cop name' do
@@ -80,9 +80,9 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
     end
 
-    context 'with mode most_occured' do
+    context 'with mode most_occurred' do
       let(:mode) do
-        'most_occured'
+        'most_occurred'
       end
 
       it 'returns cop name' do

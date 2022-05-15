@@ -86,7 +86,7 @@ Usage:
 Options:
   [--mode=MODE]
                  # Default: random
-                 # Possible values: first, last, least_occured, most_occured, random
+                 # Possible values: first, last, least_occurred, most_occurred, random
 
 Output an auto-correctable Cop from .rubocop_todo.yml.
 ```

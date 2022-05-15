@@ -49,8 +49,8 @@ module RubocopTodoCorrector
       enum: %w[
         first
         last
-        least_occured
-        most_occured
+        least_occurred
+        most_occurred
         random
       ],
       type: :string

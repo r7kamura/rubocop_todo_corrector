@@ -57,11 +57,11 @@ module RubocopTodoCorrector
           auto_correctable_cops.first
         when 'last'
           auto_correctable_cops.last
-        when 'least_occured'
+        when 'least_occurred'
           auto_correctable_cops.min_by do |cop|
             cop[:offenses_count]
           end
-        when 'most_occured'
+        when 'most_occurred'
           auto_correctable_cops.max_by do |cop|
             cop[:offenses_count]
           end
