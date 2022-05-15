@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'yard'
+
 module RubocopTodoCorrector
   class CopDocumentParser
     class << self

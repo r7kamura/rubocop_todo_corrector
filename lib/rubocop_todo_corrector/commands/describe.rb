@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'yard'
-
 module RubocopTodoCorrector
   module Commands
     class Describe
