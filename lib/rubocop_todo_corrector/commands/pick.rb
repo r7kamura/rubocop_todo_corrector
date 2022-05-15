@@ -30,7 +30,11 @@ module RubocopTodoCorrector
       def call
         check_rubocop_todo_existence
         cop_name = picked_cop&.[](:name)
-        ::Kernel.puts cop_name if cop_name
+        if cop_name
+          ::Kernel.puts(cop_name)
+        else
+          ::Kernel.abort('No cop was picked.')
+        end
       end
 
       private

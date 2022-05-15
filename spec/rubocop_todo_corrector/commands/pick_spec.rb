@@ -10,6 +10,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
     end
 
     before do
+      allow(Kernel).to receive(:abort)
       allow(Kernel).to receive(:puts)
     end
 
@@ -28,6 +29,19 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
 
       it 'raises error' do
         expect { subject }.to raise_error(RuntimeError)
+      end
+    end
+
+    context 'when no cop found' do
+      let(:rubocop_todo_path) do
+        'spec/fixtures/dummy_empty_rubocop_todo.yml'
+      end
+
+      it 'aborts' do
+        subject
+        expect(Kernel).to have_received(:abort).with(
+          'No cop was picked.'
+        )
       end
     end
 
