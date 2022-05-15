@@ -41,5 +41,23 @@ module RubocopTodoCorrector
         rubocop_todo_path: '.rubocop_todo.yml'
       )
     end
+
+    desc 'remove', 'Remove section with specified cop name from .rubocop_todo.yml.'
+    option(
+      :cop_name,
+      type: :string,
+      required: true
+    )
+    option(
+      :rubocop_todo_path,
+      default: '.rubocop_todo.yml',
+      type: :string
+    )
+    def remove
+      Commands::Remove.call(
+        cop_name: options[:cop_name],
+        rubocop_todo_path: options[:rubocop_todo_path]
+      )
+    end
   end
 end

@@ -21,12 +21,13 @@ gem install rubocop_todo_corrector
 ## Usage
 
 ```console
-$ rubocop_todo_corrector --help
+$ rubocop_todo_corrector
 Commands:
-  rubocop_todo_corrector bundle          # Run `bundle install` to install RuboCop related gems.
-  rubocop_todo_corrector generate        # Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
-  rubocop_todo_corrector help [COMMAND]  # Describe available commands or one specific command
-  rubocop_todo_corrector pick            # Pick an auto-correctable Cop from .rubocop_todo.yml.
+  rubocop_todo_corrector bundle                      # Run `bundle install` to install RuboCop related gems.
+  rubocop_todo_corrector generate                    # Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
+  rubocop_todo_corrector help [COMMAND]              # Describe available commands or one specific command
+  rubocop_todo_corrector pick                        # Pick an auto-correctable Cop from .rubocop_todo.yml.
+  rubocop_todo_corrector remove --cop-name=COP_NAME  # Remove section with specified cop name from .rubocop_todo.yml.
 ```
 
 ### bundle
@@ -62,4 +63,19 @@ Options:
                  # Possible values: first, last, least_occured, most_occured, random
 
 Pick an auto-correctable Cop from .rubocop_todo.yml.
+```
+
+### Remove
+
+```console
+$ ./exe/rubocop_todo_corrector help remove
+Usage:
+  rubocop_todo_corrector remove --cop-name=COP_NAME
+
+Options:
+  --cop-name=COP_NAME
+  [--rubocop-todo-path=RUBOCOP_TODO_PATH]
+                                           # Default: .rubocop_todo.yml
+
+Remove section with specified cop name from .rubocop_todo.yml.
 ```
