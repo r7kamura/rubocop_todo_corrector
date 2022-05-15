@@ -18,6 +18,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
         subject
         expect(Kernel).to have_received(:puts).with(
           <<~'MARKDOWN'
+            Auto-correct Style/StringLiterals
+
             ## Summary
 
             Auto-corrected [Style/StringLiterals](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/StringLiterals).

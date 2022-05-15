@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Change `describe` output so that commit-message-ready text is described.
+
 ## 0.2.0 - 2022-05-15
 
 ### Added
