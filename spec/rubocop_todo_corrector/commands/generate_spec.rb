@@ -4,7 +4,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Generate do
   describe '.call' do
     subject do
       described_class.call(
-        rubocop_todo_path: rubocop_todo_path,
+        rubocop_todo_path:,
         temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end

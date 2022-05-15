@@ -10,8 +10,8 @@ module RubocopTodoCorrector
       # @return [String, nil]
       def call(gemfile_lock_path:, gem_name:)
         new(
-          gemfile_lock_path: gemfile_lock_path,
-          gem_name: gem_name
+          gemfile_lock_path:,
+          gem_name:
         ).call
       end
     end

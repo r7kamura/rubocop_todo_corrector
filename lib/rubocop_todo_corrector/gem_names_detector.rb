@@ -8,7 +8,7 @@ module RubocopTodoCorrector
       # @param [String] rubocop_configuration_path
       # @return [Array<String>]
       def call(rubocop_configuration_path:)
-        new(rubocop_configuration_path: rubocop_configuration_path).call
+        new(rubocop_configuration_path:).call
       end
     end
 

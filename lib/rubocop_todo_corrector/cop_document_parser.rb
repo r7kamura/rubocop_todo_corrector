@@ -11,7 +11,7 @@ module RubocopTodoCorrector
         source_path:
       )
         new(
-          source_path: source_path
+          source_path:
         ).call
       end
     end

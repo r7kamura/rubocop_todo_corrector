@@ -4,8 +4,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
   describe '.call' do
     subject do
       described_class.call(
-        mode: mode,
-        rubocop_todo_path: rubocop_todo_path
+        mode:,
+        rubocop_todo_path:
       )
     end
 

@@ -13,8 +13,8 @@ module RubocopTodoCorrector
           rubocop_todo_path:
         )
           new(
-            mode: mode,
-            rubocop_todo_path: rubocop_todo_path
+            mode:,
+            rubocop_todo_path:
           ).call
         end
       end

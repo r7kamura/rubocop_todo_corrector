@@ -17,9 +17,9 @@ module RubocopTodoCorrector
         cop_source_path:
       )
         new(
-          cop_document: cop_document,
-          cop_name: cop_name,
-          cop_source_path: cop_source_path
+          cop_document:,
+          cop_name:,
+          cop_source_path:
         ).call
       end
     end

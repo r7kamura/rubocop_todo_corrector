@@ -16,7 +16,7 @@ module RubocopTodoCorrector
       # @param [String] content
       def call(content:)
         new(
-          content: content
+          content:
         ).call
       end
     end
@@ -28,8 +28,8 @@ module RubocopTodoCorrector
     # @return [Hash]
     def call
       {
-        cops: cops,
-        previous_rubocop_command: previous_rubocop_command
+        cops:,
+        previous_rubocop_command:
       }
     end
 

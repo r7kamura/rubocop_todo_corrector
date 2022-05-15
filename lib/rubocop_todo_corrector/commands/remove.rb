@@ -13,8 +13,8 @@ module RubocopTodoCorrector
           rubocop_todo_path:
         )
           new(
-            cop_name: cop_name,
-            rubocop_todo_path: rubocop_todo_path
+            cop_name:,
+            rubocop_todo_path:
           ).call
         end
       end

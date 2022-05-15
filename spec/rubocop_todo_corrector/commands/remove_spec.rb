@@ -5,7 +5,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Remove do
     subject do
       described_class.call(
         cop_name: 'Style/StringConcatenation',
-        rubocop_todo_path: rubocop_todo_path
+        rubocop_todo_path:
       )
     end
 

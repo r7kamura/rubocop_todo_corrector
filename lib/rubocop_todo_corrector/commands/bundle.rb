@@ -13,9 +13,9 @@ module RubocopTodoCorrector
           temporary_gemfile_path:
         )
           new(
-            rubocop_configuration_path: rubocop_configuration_path,
-            gemfile_lock_path: gemfile_lock_path,
-            temporary_gemfile_path: temporary_gemfile_path
+            rubocop_configuration_path:,
+            gemfile_lock_path:,
+            temporary_gemfile_path:
           ).call
         end
       end
@@ -32,7 +32,7 @@ module RubocopTodoCorrector
 
       def call
         BundleInstaller.call(
-          gem_specifications: gem_specifications,
+          gem_specifications:,
           temporary_gemfile_path: @temporary_gemfile_path
         )
       end
@@ -51,9 +51,9 @@ module RubocopTodoCorrector
       def gem_specifications
         gem_names.map do |gem_name|
           {
-            gem_name: gem_name,
+            gem_name:,
             gem_version: GemVersionDetector.call(
-              gem_name: gem_name,
+              gem_name:,
               gemfile_lock_path: @gemfile_lock_path
             )
           }

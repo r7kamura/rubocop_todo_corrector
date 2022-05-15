@@ -6,7 +6,7 @@ module RubocopTodoCorrector
       # @param [String] content
       def call(content:)
         new(
-          content: content
+          content:
         ).call
       end
     end
@@ -19,8 +19,8 @@ module RubocopTodoCorrector
     def call
       {
         auto_correctable: auto_correctable?,
-        name: name,
-        offenses_count: offenses_count
+        name:,
+        offenses_count:
       }
     end
 

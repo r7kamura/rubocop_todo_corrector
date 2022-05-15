@@ -13,8 +13,8 @@ module RubocopTodoCorrector
           temporary_gemfile_path:
         )
           new(
-            rubocop_todo_path: rubocop_todo_path,
-            temporary_gemfile_path: temporary_gemfile_path
+            rubocop_todo_path:,
+            temporary_gemfile_path:
           ).call
         end
       end
