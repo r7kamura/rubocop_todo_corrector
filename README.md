@@ -88,8 +88,6 @@ Usage:
 
 Options:
   --cop-name=COP_NAME
-  [--rubocop-todo-path=RUBOCOP_TODO_PATH]
-                                           # Default: .rubocop_todo.yml
 
 Remove section with specified cop name from .rubocop_todo.yml.
 ```

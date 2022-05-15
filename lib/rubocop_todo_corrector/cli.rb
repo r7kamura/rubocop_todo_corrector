@@ -61,15 +61,10 @@ module RubocopTodoCorrector
       type: :string,
       required: true
     )
-    option(
-      :rubocop_todo_path,
-      default: '.rubocop_todo.yml',
-      type: :string
-    )
     def remove
       Commands::Remove.call(
         cop_name: options[:cop_name],
-        rubocop_todo_path: options[:rubocop_todo_path]
+        rubocop_todo_path: '.rubocop_todo.yml'
       )
     end
   end
