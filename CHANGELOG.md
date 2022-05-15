@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.5.0 - 2022-05-16
+
 ### Changed
 
 - Change required ruby version from 3.0 to 3.1.
