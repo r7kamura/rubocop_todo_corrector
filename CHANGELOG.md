@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.1.1 - 2022-05-15
+
 ### Changed
 
 - Abort if no cop was picked on `pick` command.
