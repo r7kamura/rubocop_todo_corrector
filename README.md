@@ -79,7 +79,7 @@ Options:
 Output an auto-correctable Cop from .rubocop_todo.yml.
 ```
 
-### Remove
+### remove
 
 ```console
 $ rubocop_todo_corrector help remove
