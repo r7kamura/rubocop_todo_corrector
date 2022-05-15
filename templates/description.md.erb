@@ -13,8 +13,10 @@ Auto-corrected [<%= @cop_name %>](<%= cop_url %>).
 >
 > #### Examples
 <% @cop_document[:examples].each do |example| -%>
+<% unless example[:name].empty? -%>
 >
 > <%= example[:name].strip %>
+<% end -%>
 >
 > ```ruby
 <% example[:text].each_line do |line| -%>

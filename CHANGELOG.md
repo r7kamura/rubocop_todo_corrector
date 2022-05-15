@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Improve description on no named example.
+
 ## 0.1.1 - 2022-05-15
 
 ### Changed
