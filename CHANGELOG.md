@@ -1,5 +1,7 @@
-## [Unreleased]
+# Changelog
 
-## [0.1.0] - 2022-05-14
+## Unreleased
 
-- Initial release
+### Added
+
+- Initial release.
