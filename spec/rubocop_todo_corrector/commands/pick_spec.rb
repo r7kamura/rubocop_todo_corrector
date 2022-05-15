@@ -9,6 +9,10 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       )
     end
 
+    before do
+      allow(Kernel).to receive(:puts)
+    end
+
     let(:mode) do
       'first'
     end
@@ -29,7 +33,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
 
     context 'with mode first' do
       it 'returns cop name' do
-        is_expected.to eq(
+        subject
+        expect(Kernel).to have_received(:puts).with(
           'Style/StringConcatenation'
         )
       end
@@ -41,7 +46,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
 
       it 'returns cop name' do
-        is_expected.to eq(
+        subject
+        expect(Kernel).to have_received(:puts).with(
           'Style/StringLiterals'
         )
       end
@@ -53,7 +59,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
 
       it 'returns cop name' do
-        is_expected.to eq(
+        subject
+        expect(Kernel).to have_received(:puts).with(
           'Style/StringLiterals'
         )
       end
@@ -65,7 +72,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
       end
 
       it 'returns cop name' do
-        is_expected.to eq(
+        subject
+        expect(Kernel).to have_received(:puts).with(
           'Style/StringConcatenation'
         )
       end

@@ -36,7 +36,7 @@ module RubocopTodoCorrector
       type: :string
     )
     def pick
-      puts Commands::Pick.call(
+      Commands::Pick.call(
         mode: options[:mode],
         rubocop_todo_path: '.rubocop_todo.yml'
       )

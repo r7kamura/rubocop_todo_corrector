@@ -29,7 +29,8 @@ module RubocopTodoCorrector
 
       def call
         check_rubocop_todo_existence
-        picked_cop&.[](:name)
+        cop_name = picked_cop&.[](:name)
+        ::Kernel.puts cop_name if cop_name
       end
 
       private
