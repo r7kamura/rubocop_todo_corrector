@@ -68,7 +68,7 @@ Pick an auto-correctable Cop from .rubocop_todo.yml.
 ### Remove
 
 ```console
-$ ./exe/rubocop_todo_corrector help remove
+$ rubocop_todo_corrector help remove
 Usage:
   rubocop_todo_corrector remove --cop-name=COP_NAME
 
