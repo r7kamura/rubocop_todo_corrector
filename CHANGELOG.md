@@ -4,7 +4,7 @@
 
 ### Added
 
-- Add --only-safe option to pick command (default: `true`).
+- Add `--only-safe` option to `correct` and `pick` command (default: `true`).
 
 ## 0.5.0 - 2022-05-16
 

@@ -14,9 +14,15 @@ module RubocopTodoCorrector
       )
     end
 
-    desc 'correct', 'Run `rubocop --auto-correct-all`.'
+    desc 'correct', 'Run `rubocop --auto-correct(-all)`.'
+    option(
+      :only_safe,
+      default: true,
+      type: :boolean
+    )
     def correct
       Commands::Correct.call(
+        only_safe: options[:only_safe],
         temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
       )
     end

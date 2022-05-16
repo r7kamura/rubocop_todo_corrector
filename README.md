@@ -46,11 +46,14 @@ Run `bundle install` to install RuboCop related gems.
 ### correct
 
 ```console
-$ rubocop_todo_corrector help correct
 Usage:
   rubocop_todo_corrector correct
 
-Run `rubocop --auto-correct-all`.
+Options:
+  [--only-safe], [--no-only-safe]
+                                   # Default: true
+
+Run `rubocop --auto-correct(-all)`.
 ```
 
 ### describe
