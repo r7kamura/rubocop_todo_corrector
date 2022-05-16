@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.6.0 - 2022-05-16
+
 ### Added
 
 - Add `--only-safe` option to `correct` and `pick` command (default: `true`).
