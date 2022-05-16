@@ -7,13 +7,16 @@ module RubocopTodoCorrector
     class Pick
       class << self
         # @param [String] mode
+        # @param [Boolean] only_safe
         # @param [String] rubocop_todo_path
         def call(
           mode:,
+          only_safe:,
           rubocop_todo_path:
         )
           new(
             mode:,
+            only_safe:,
             rubocop_todo_path:
           ).call
         end
@@ -21,9 +24,11 @@ module RubocopTodoCorrector
 
       def initialize(
         mode:,
+        only_safe:,
         rubocop_todo_path:
       )
         @mode = mode
+        @only_safe = only_safe
         @rubocop_todo_path = rubocop_todo_path
       end
 
@@ -42,7 +47,11 @@ module RubocopTodoCorrector
       # @return [Array<Hash>]
       def auto_correctable_cops
         rubocop_todo[:cops].select do |cop|
-          cop[:auto_correctable]
+          if @only_safe
+            cop[:safe_auto_correctable]
+          else
+            cop[:auto_correctable]
+          end
         end
       end
 
