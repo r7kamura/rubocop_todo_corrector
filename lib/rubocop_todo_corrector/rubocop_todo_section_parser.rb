@@ -29,7 +29,7 @@ module RubocopTodoCorrector
 
     # @return [Boolean]
     def auto_correctable
-      safe_auto_correctable || unsafe_auto_corectable
+      safe_auto_correctable || unsafe_auto_correctable
     end
 
     # @return [String, nil]
@@ -50,7 +50,7 @@ module RubocopTodoCorrector
         @content.include?('# This cop supports safe auto-correction')
     end
 
-    def unsafe_auto_corectable
+    def unsafe_auto_correctable
       @content.include?('# Cop supports --auto-correct-all') ||
         @content.include?('# This cop supports unsafe auto-correction')
     end
