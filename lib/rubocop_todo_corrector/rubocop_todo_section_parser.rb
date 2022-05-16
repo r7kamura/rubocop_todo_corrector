@@ -18,19 +18,18 @@ module RubocopTodoCorrector
     # @return [Hash]
     def call
       {
-        auto_correctable: auto_correctable?,
+        auto_correctable:,
         name:,
-        offenses_count:
+        offenses_count:,
+        safe_auto_correctable:
       }
     end
 
     private
 
     # @return [Boolean]
-    def auto_correctable?
-      @content.include?('# Cop supports --auto-correct') ||
-        @content.include?('# This cop supports safe auto-correction') ||
-        @content.include?('# This cop supports unsafe auto-correction')
+    def auto_correctable
+      safe_auto_correctable || unsafe_auto_corectable
     end
 
     # @return [String, nil]
@@ -44,6 +43,16 @@ module RubocopTodoCorrector
         /^# Offense count: (?<offenses_count>\d+)$/,
         'offenses_count'
       ]&.to_i
+    end
+
+    def safe_auto_correctable
+      @content.include?('# Cop supports --auto-correct.') ||
+        @content.include?('# This cop supports safe auto-correction')
+    end
+
+    def unsafe_auto_corectable
+      @content.include?('# Cop supports --auto-correct-all') ||
+        @content.include?('# This cop supports unsafe auto-correction')
     end
   end
 end

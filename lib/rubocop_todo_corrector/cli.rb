@@ -42,7 +42,7 @@ module RubocopTodoCorrector
       )
     end
 
-    desc 'pick', 'Pick an auto-correctable Cop from .rubocop_todo.yml.'
+    desc 'pick', 'Output an auto-correctable Cop from .rubocop_todo.yml.'
     option(
       :mode,
       default: 'random',
@@ -55,9 +55,15 @@ module RubocopTodoCorrector
       ],
       type: :string
     )
+    option(
+      :only_safe,
+      default: true,
+      type: :boolean
+    )
     def pick
       Commands::Pick.call(
         mode: options[:mode],
+        only_safe: options[:only_safe],
         rubocop_todo_path: '.rubocop_todo.yml'
       )
     end

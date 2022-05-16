@@ -45,7 +45,15 @@ RSpec.describe RubocopTodoCorrector::Commands::Remove do
             # Configuration parameters: IgnoredMethods.
             Lint/AmbiguousBlockAssociation:
               Exclude:
-                - 'foo.rb'
+                - '1.rb'
+
+            # Offense count: 3
+            # Cop supports --auto-correct-all.
+            Style/SafeNavigation:
+              Exclude:
+                - '1.rb'
+                - '2.rb'
+                - '3.rb'
 
             # Offense count: 2
             # Cop supports --auto-correct.
@@ -53,8 +61,8 @@ RSpec.describe RubocopTodoCorrector::Commands::Remove do
             # SupportedStyles: single_quotes, double_quotes
             Style/StringLiterals:
               Exclude:
-                - 'foo.rb'
-                - 'bar.rb'
+                - '1.rb'
+                - '2.rb'
           YAML
         )
       end

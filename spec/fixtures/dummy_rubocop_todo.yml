@@ -10,16 +10,25 @@
 # Configuration parameters: IgnoredMethods.
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - 'foo.rb'
+    - '1.rb'
 
 # Offense count: 3
+# Cop supports --auto-correct-all.
+Style/SafeNavigation:
+  Exclude:
+    - '1.rb'
+    - '2.rb'
+    - '3.rb'
+
+# Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: Mode.
 Style/StringConcatenation:
   Exclude:
-    - 'foo.rb'
-    - 'bar.rb'
-    - 'baz.rb'
+    - '1.rb'
+    - '2.rb'
+    - '3.rb'
+    - '4.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -27,5 +36,5 @@ Style/StringConcatenation:
 # SupportedStyles: single_quotes, double_quotes
 Style/StringLiterals:
   Exclude:
-    - 'foo.rb'
-    - 'bar.rb'
+    - '1.rb'
+    - '2.rb'

@@ -29,7 +29,7 @@ Commands:
   rubocop_todo_corrector describe --cop-name=COP_NAME  # Output Markdown description for specified cop.
   rubocop_todo_corrector generate                      # Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
   rubocop_todo_corrector help [COMMAND]                # Describe available commands or one specific command
-  rubocop_todo_corrector pick                          # Pick an auto-correctable Cop from .rubocop_todo.yml.
+  rubocop_todo_corrector pick                          # Output an auto-correctable Cop from .rubocop_todo.yml.
   rubocop_todo_corrector remove --cop-name=COP_NAME    # Remove section with specified cop name from .rubocop_todo.yml.
 ```
 
@@ -85,8 +85,10 @@ Usage:
 
 Options:
   [--mode=MODE]
-                 # Default: random
-                 # Possible values: first, last, least_occurred, most_occurred, random
+                                   # Default: random
+                                   # Possible values: first, last, least_occurred, most_occurred, random
+  [--only-safe], [--no-only-safe]
+                                   # Default: true
 
 Output an auto-correctable Cop from .rubocop_todo.yml.
 ```

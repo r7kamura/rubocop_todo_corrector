@@ -5,6 +5,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
     subject do
       described_class.call(
         mode:,
+        only_safe:,
         rubocop_todo_path:
       )
     end
@@ -16,6 +17,10 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
 
     let(:mode) do
       'first'
+    end
+
+    let(:only_safe) do
+      true
     end
 
     let(:rubocop_todo_path) do
@@ -46,10 +51,23 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
     end
 
     context 'with mode first' do
-      it 'returns cop name' do
+      it 'puts expected cop name' do
         subject
         expect(Kernel).to have_received(:puts).with(
           'Style/StringConcatenation'
+        )
+      end
+    end
+
+    context 'with mode first and only_safe: false' do
+      let(:only_safe) do
+        false
+      end
+
+      it 'puts expected cop name' do
+        subject
+        expect(Kernel).to have_received(:puts).with(
+          'Style/SafeNavigation'
         )
       end
     end
@@ -59,7 +77,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
         'last'
       end
 
-      it 'returns cop name' do
+      it 'puts expected cop name' do
         subject
         expect(Kernel).to have_received(:puts).with(
           'Style/StringLiterals'
@@ -72,7 +90,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
         'least_occurred'
       end
 
-      it 'returns cop name' do
+      it 'puts expected cop name' do
         subject
         expect(Kernel).to have_received(:puts).with(
           'Style/StringLiterals'
@@ -85,7 +103,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
         'most_occurred'
       end
 
-      it 'returns cop name' do
+      it 'puts expected cop name' do
         subject
         expect(Kernel).to have_received(:puts).with(
           'Style/StringConcatenation'
