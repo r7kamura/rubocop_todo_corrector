@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.7.0 - 2022-05-27
+
 ### Added
 
 - Support rubocop 1.30 .rubocop_todo.yml format.
