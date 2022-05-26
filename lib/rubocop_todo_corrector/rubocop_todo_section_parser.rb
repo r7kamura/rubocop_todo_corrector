@@ -46,13 +46,15 @@ module RubocopTodoCorrector
     end
 
     def safe_auto_correctable
-      @content.include?('# Cop supports --auto-correct.') ||
-        @content.include?('# This cop supports safe auto-correction')
+      @content.include?('# Cop supports --auto-correct.') || # Before rubocop 1.26
+        @content.include?('# This cop supports safe auto-correction') || # Before rubocop 1.30
+        @content.include?('# This cop supports safe autocorrection')
     end
 
     def unsafe_auto_correctable
       @content.include?('# Cop supports --auto-correct-all') ||
-        @content.include?('# This cop supports unsafe auto-correction')
+        @content.include?('# This cop supports unsafe auto-correction') ||
+        @content.include?('# This cop supports unsafe autocorrection')
     end
   end
 end
