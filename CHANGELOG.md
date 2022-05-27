@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.7.1 - 2022-05-28
+
 ### Fixed
 
 - Fix YARD unknown tag warning.
