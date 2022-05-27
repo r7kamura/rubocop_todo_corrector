@@ -42,6 +42,7 @@ module RubocopTodoCorrector
     # @return [YARD::CodeObjects::ClassObject]
     def yard_class_object
       @yard_class_object ||= begin
+        ::YARD::Tags::Library.define_tag('Cop Safety Information', :safety)
         ::YARD.parse(@source_path)
         yardoc = ::YARD::Registry.all(:class).first
         ::YARD::Registry.clear
