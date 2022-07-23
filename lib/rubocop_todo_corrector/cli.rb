@@ -14,6 +14,13 @@ module RubocopTodoCorrector
       )
     end
 
+    desc 'clean', 'Remove temporary files.'
+    def clean
+      Commands::Clean.call(
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
+      )
+    end
+
     desc 'correct', 'Run `rubocop --auto-correct(-all)`.'
     option(
       :only_safe,
