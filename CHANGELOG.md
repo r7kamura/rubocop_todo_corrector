@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Add `clean` command.
+
 ## 0.7.1 - 2022-05-28
 
 ### Fixed
