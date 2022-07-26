@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.9.0 - 2022-07-27
+
 ### Added
 
 - Add `.rubocop_todo_corrector_ignore` file support.
