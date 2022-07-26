@@ -33,3 +33,14 @@ Commands:
   rubocop_todo_corrector pick                          # Output an auto-correctable Cop from .rubocop_todo.yml.
   rubocop_todo_corrector remove --cop-name=COP_NAME    # Remove section with specified cop name from .rubocop_todo.yml.
 ```
+
+### .rubocop_todo_corrector_ignore
+
+By specifying cop names in `.rubocop_todo_corrector_ignore`, you can exclude them from the selection.
+
+```
+Style/StringConcatenation
+Style/StringLiterals
+```
+
+This is useful, for example, when you find a cop that cannot be autocorrected.
