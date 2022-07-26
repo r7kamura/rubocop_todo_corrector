@@ -40,6 +40,8 @@ By specifying cop names in `.rubocop_todo_corrector_ignore`, you can exclude the
 
 ```
 Style/StringConcatenation
+
+# Comment line is available like this.
 Style/StringLiterals
 ```
 
