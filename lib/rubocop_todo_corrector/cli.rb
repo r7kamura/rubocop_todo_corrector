@@ -75,6 +75,7 @@ module RubocopTodoCorrector
     )
     def pick
       Commands::Pick.call(
+        ignore_file_path: '.rubocop_todo_corrector_ignore',
         mode: options[:mode],
         only_safe: options[:only_safe],
         rubocop_todo_path: '.rubocop_todo.yml'

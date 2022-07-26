@@ -1,20 +1,24 @@
 # frozen_string_literal: true
 
 require 'pathname'
+require 'set'
 
 module RubocopTodoCorrector
   module Commands
     class Pick
       class << self
+        # @param [String] ignore_file_path
         # @param [String] mode
         # @param [Boolean] only_safe
         # @param [String] rubocop_todo_path
         def call(
+          ignore_file_path:,
           mode:,
           only_safe:,
           rubocop_todo_path:
         )
           new(
+            ignore_file_path:,
             mode:,
             only_safe:,
             rubocop_todo_path:
@@ -23,10 +27,12 @@ module RubocopTodoCorrector
       end
 
       def initialize(
+        ignore_file_path:,
         mode:,
         only_safe:,
         rubocop_todo_path:
       )
+        @ignore_file_path = ignore_file_path
         @mode = mode
         @only_safe = only_safe
         @rubocop_todo_path = rubocop_todo_path
@@ -59,23 +65,37 @@ module RubocopTodoCorrector
         raise "#{rubocop_todo_pathname.to_s.inspect} does not exist." unless rubocop_todo_pathname.exist?
       end
 
+      # @return [Set<String>]
+      def ignored_cop_names
+        @ignored_cop_names ||= IgnoreFile.new(
+          path: @ignore_file_path
+        ).ignored_cop_names.to_set
+      end
+
+      # @return [Array<Hash>]
+      def pickable_cops
+        auto_correctable_cops.reject do |cop|
+          ignored_cop_names.include?(cop[:name])
+        end
+      end
+
       # @return [Hash, nil]
       def picked_cop
         case @mode
         when 'first'
-          auto_correctable_cops.first
+          pickable_cops.first
         when 'last'
-          auto_correctable_cops.last
+          pickable_cops.last
         when 'least_occurred'
-          auto_correctable_cops.min_by do |cop|
+          pickable_cops.min_by do |cop|
             cop[:offenses_count]
           end
         when 'most_occurred'
-          auto_correctable_cops.max_by do |cop|
+          pickable_cops.max_by do |cop|
             cop[:offenses_count]
           end
         else
-          auto_correctable_cops.sample
+          pickable_cops.sample
         end
       end
 
