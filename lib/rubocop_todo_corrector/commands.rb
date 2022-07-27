@@ -7,6 +7,7 @@ module RubocopTodoCorrector
     autoload :Correct, 'rubocop_todo_corrector/commands/correct'
     autoload :Describe, 'rubocop_todo_corrector/commands/describe'
     autoload :Generate, 'rubocop_todo_corrector/commands/generate'
+    autoload :Ignore, 'rubocop_todo_corrector/commands/ignore'
     autoload :Pick, 'rubocop_todo_corrector/commands/pick'
     autoload :Remove, 'rubocop_todo_corrector/commands/remove'
   end

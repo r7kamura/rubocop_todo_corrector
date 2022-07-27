@@ -9,6 +9,15 @@ module RubocopTodoCorrector
       @path = path
     end
 
+    # @param [String] cop_name
+    def append_cop_name(cop_name)
+      return if include?(cop_name)
+
+      appendix = "#{cop_name}\n"
+      appendix.prepend("\n") if !content.empty? && !content.end_with?("\n")
+      pathname.write("#{content}#{appendix}")
+    end
+
     # @return [Array<String>]
     def ignored_cop_names
       content.split("\n").map do |line|
@@ -25,6 +34,12 @@ module RubocopTodoCorrector
       else
         ''
       end
+    end
+
+    # @param [String] cop_name
+    # @return [Boolean]
+    def include?(cop_name)
+      ignored_cop_names.include?(cop_name)
     end
 
     # @return [Pathname]

@@ -30,6 +30,7 @@ Commands:
   rubocop_todo_corrector describe --cop-name=COP_NAME  # Output Markdown description for specified cop.
   rubocop_todo_corrector generate                      # Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
   rubocop_todo_corrector help [COMMAND]                # Describe available commands or one specific command
+  rubocop_todo_corrector ignore --cop-name=COP_NAME    # Ignore specified cop by appending it to ignore file.
   rubocop_todo_corrector pick                          # Output an auto-correctable Cop from .rubocop_todo.yml.
   rubocop_todo_corrector remove --cop-name=COP_NAME    # Remove section with specified cop name from .rubocop_todo.yml.
 ```
