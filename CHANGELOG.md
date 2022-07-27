@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.10.0 - 2022-07-27
+
 ### Added
 
 - Add `ignore` command.
