@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Add `ignore` command.
+
 ## 0.9.0 - 2022-07-27
 
 ### Added

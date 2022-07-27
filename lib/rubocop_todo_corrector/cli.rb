@@ -55,6 +55,19 @@ module RubocopTodoCorrector
       )
     end
 
+    desc 'ignore', 'Ignore specified cop by appending it to ignore file.'
+    option(
+      :cop_name,
+      type: :string,
+      required: true
+    )
+    def ignore
+      Commands::Ignore.call(
+        ignore_file_path: '.rubocop_todo_corrector_ignore',
+        cop_name: options[:cop_name]
+      )
+    end
+
     desc 'pick', 'Output an auto-correctable Cop from .rubocop_todo.yml.'
     option(
       :mode,
