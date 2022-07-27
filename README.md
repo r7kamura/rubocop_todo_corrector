@@ -26,7 +26,7 @@ $ rubocop_todo_corrector
 Commands:
   rubocop_todo_corrector bundle                        # Run `bundle install` to install RuboCop related gems.
   rubocop_todo_corrector clean                         # Remove temporary files.
-  rubocop_todo_corrector correct                       # Run `rubocop --auto-correct-all`.
+  rubocop_todo_corrector correct                       # Run `rubocop --auto-correct(-all)`.
   rubocop_todo_corrector describe --cop-name=COP_NAME  # Output Markdown description for specified cop.
   rubocop_todo_corrector generate                      # Run `rubocop --auto-gen-config` to generate .rubocop_todo.yml.
   rubocop_todo_corrector help [COMMAND]                # Describe available commands or one specific command
