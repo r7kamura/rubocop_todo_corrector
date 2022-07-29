@@ -30,32 +30,8 @@ module RubocopTodoCorrector
       def call
         ::Kernel.system(
           { 'BUNDLE_GEMFILE' => @temporary_gemfile_path },
-          "bundle exec #{rubocop_command}"
+          'bundle exec rubocop --regenerate-todo'
         )
-      end
-
-      private
-
-      # @return [String]
-      def rubocop_command
-        rubocop_command_from_todo || 'rubocop --auto-gen-config'
-      end
-
-      # @return [String, nil]
-      def rubocop_command_from_todo
-        return unless rubocop_todo_pathname.exist?
-
-        RubocopTodoParser.call(content: rubocop_todo_content)[:previous_rubocop_command]
-      end
-
-      # @return [String]
-      def rubocop_todo_content
-        rubocop_todo_pathname.read
-      end
-
-      # @return [Pathname]
-      def rubocop_todo_pathname
-        @rubocop_todo_pathname ||= ::Pathname.new(@rubocop_todo_path)
       end
     end
   end
