@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Use `rubocop --regenerate-todo` option on `generate` command.
+
 ## 0.10.0 - 2022-07-27
 
 ### Added

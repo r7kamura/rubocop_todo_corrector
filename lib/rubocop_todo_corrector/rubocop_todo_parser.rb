@@ -27,10 +27,7 @@ module RubocopTodoCorrector
 
     # @return [Hash]
     def call
-      {
-        cops:,
-        previous_rubocop_command:
-      }
+      { cops: }
     end
 
     private
@@ -40,13 +37,6 @@ module RubocopTodoCorrector
       cop_sections.map do |cop_section|
         RubocopTodoSectionParser.call(content: cop_section)
       end
-    end
-
-    def previous_rubocop_command
-      @content[
-        /`(.+)`/,
-        1
-      ]
     end
 
     # @return [Array<String>]

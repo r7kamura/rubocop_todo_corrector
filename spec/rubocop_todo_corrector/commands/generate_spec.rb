@@ -17,26 +17,12 @@ RSpec.describe RubocopTodoCorrector::Commands::Generate do
       'spec/fixtures/dummy_rubocop_todo.yml'
     end
 
-    context 'without existent .rubocop_todo.yml' do
-      let(:rubocop_todo_path) do
-        'spec/fixtures/non_existent_rubocop_todo_path.yml'
-      end
-
-      it 'runs rubocop with default options' do
+    context 'with valid condition' do
+      it 'runs bundle exec rubocop --regenerate-todo' do
         subject
         expect(Kernel).to have_received(:system).with(
           { 'BUNDLE_GEMFILE' => 'tmp/Gemfile_rubocop_todo_corrector.rb' },
-          'bundle exec rubocop --auto-gen-config'
-        )
-      end
-    end
-
-    context 'with existent .rubocop_todo.yml' do
-      it 'runs rubocop with the same options' do
-        subject
-        expect(Kernel).to have_received(:system).with(
-          { 'BUNDLE_GEMFILE' => 'tmp/Gemfile_rubocop_todo_corrector.rb' },
-          'bundle exec rubocop --auto-gen-config --exclude-limit 9999 --no-offense-counts --no-auto-gen-timestamp'
+          'bundle exec rubocop --regenerate-todo'
         )
       end
     end
