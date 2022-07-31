@@ -3,7 +3,9 @@
 [![test](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml/badge.svg)](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml)
 [![Gem Version](https://badge.fury.io/rb/rubocop_todo_corrector.svg)](https://rubygems.org/gems/rubocop_todo_corrector)
 
-Auto-correct offenses defined in .rubocop_todo.yml.
+Auto-correct offenses defined in `.rubocop_todo.yml`.
+
+This is an internal implementation of [rubocop-todo-corrector](https://github.com/r7kamura/rubocop-todo-corrector) action.
 
 ## Installation
 
