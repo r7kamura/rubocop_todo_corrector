@@ -5,7 +5,7 @@
 
 Auto-correct offenses defined in `.rubocop_todo.yml`.
 
-This is an internal implementation of [rubocop-todo-corrector](https://github.com/r7kamura/rubocop-todo-corrector) action.
+This is an internal implementation of [rubocop-todo-corrector](https://github.com/r7kamura/rubocop-todo-corrector) action. See its README for more information about this action.
 
 ## Installation
 
