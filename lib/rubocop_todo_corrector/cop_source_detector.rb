@@ -45,7 +45,7 @@ module RubocopTodoCorrector
 
     # @return [String]
     def cop_class_name
-      "RuboCop::Cop::#{@cop_name.sub('/', '::')}"
+      "RuboCop::Cop::#{@cop_name.gsub('/', '::')}"
     end
   end
 end
