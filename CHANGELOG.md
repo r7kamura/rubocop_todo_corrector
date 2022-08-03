@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.11.1 - 2022-08-03
+
 ### Fixed
 
 - Fix `describe` command on more than three nested cop class.
