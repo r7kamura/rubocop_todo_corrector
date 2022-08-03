@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-## Fixed
+### Fixed
 
 - Fix `describe` command on more than three nested cop class.
 
