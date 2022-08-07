@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.12.0 - 2022-08-08
+
 ### Added
 
 - Add Safety section if `@safety` YARD tag is written in Cop class.

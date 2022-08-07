@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rubocop_todo_corrector (0.11.1)
+    rubocop_todo_corrector (0.12.0)
       bundler
       thor
       yard
