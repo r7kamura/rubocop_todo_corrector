@@ -27,17 +27,39 @@ module RubocopTodoCorrector
       return unless yard_class_object
 
       {
-        description: yard_class_object.docstring,
-        examples: yard_class_object.tags('example').map do |tag|
-          {
-            name: tag.name,
-            text: tag.text
-          }
-        end
+        description:,
+        examples:,
+        safety:
       }
     end
 
     private
+
+    # @return [String]
+    def description
+      yard_class_object.docstring
+    end
+
+    # @return [Array<Hash>]
+    def examples
+      yard_class_object.tags('example').map do |tag|
+        {
+          name: tag.name,
+          text: tag.text
+        }
+      end
+    end
+
+    # @return [Hash, nil]
+    def safety
+      tag = yard_class_object.tag('safety')
+      return unless tag
+
+      {
+        name: tag.name,
+        text: tag.text
+      }
+    end
 
     # @return [YARD::CodeObjects::ClassObject]
     def yard_class_object

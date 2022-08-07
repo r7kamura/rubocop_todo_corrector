@@ -11,6 +11,12 @@ Auto-corrected [<%= @cop_name %>](<%= cop_url %>).
 <% @cop_document[:description].each_line do |line| -%>
 <%= "> #{line}".strip %>
 <% end -%>
+<% if @cop_document[:safety] -%>
+>
+> #### Safety
+>
+> <%= @cop_document[:safety][:text].gsub("\n", " ").strip %>
+<% end -%>
 <% unless @cop_document[:examples].empty? -%>
 >
 > #### Examples
