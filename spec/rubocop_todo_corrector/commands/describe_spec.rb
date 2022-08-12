@@ -14,7 +14,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
     end
 
     let(:cop_name) do
-      'Style/StringLiterals'
+      'Style/RedundantArgument'
     end
 
     context 'with valid condition' do
@@ -22,46 +22,69 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
         subject
         expect(Kernel).to have_received(:puts).with(
           <<~'MARKDOWN'
-            Auto-correct Style/StringLiterals
+            Auto-correct Style/RedundantArgument
 
             ## Summary
 
-            Auto-corrected [Style/StringLiterals](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/StringLiterals).
+            Auto-corrected [Style/RedundantArgument](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/RedundantArgument).
 
             ## Details
 
-            ### Style/StringLiterals
+            ### Style/RedundantArgument
 
-            > Checks if uses of quotes match the configured preference.
+            > <div class="paragraph">
+            > <p>This cop checks for a redundant argument passed to certain methods.</p>
+            > </div>
+            > <div class="admonitionblock note">
+            > <table>
+            > <tr>
+            > <td class="icon">
+            > <div class="title">Note</div>
+            > </td>
+            > <td class="content">
+            > This cop is limited to methods with single parameter.
+            > </td>
+            > </tr>
+            > </table>
+            > </div>
+            > <div class="paragraph">
+            > <p>Method names and their redundant arguments can be configured like this:</p>
+            > </div>
+            > <div class="listingblock">
+            > <div class="content">
+            > <pre class="highlight"><code class="language-yaml" data-lang="yaml">Methods:
+            >   join: ''
+            >   split: ' '
+            >   chomp: "\n"
+            >   chomp!: "\n"
+            >   foo: 2</code></pre>
+            > </div>
+            > </div>
+            >
+            > #### Safety
+            >
+            > This cop is unsafe because of the following limitations:  1. This cop matches by method names only and hence cannot tell apart    methods with same name in different classes. 2. This cop may be unsafe if certain special global variables (e.g. `$;`, `$/`) are set.    That depends on the nature of the target methods, of course. For example, the default    argument to join is `$OUTPUT_FIELD_SEPARATOR` (or `$,`) rather than `''`, and if that    global is changed, `''` is no longer a redundant argument.
             >
             > #### Examples
             >
-            > EnforcedStyle: single_quotes (default)
-            >
             > ```ruby
             > # bad
-            > "No special symbols"
-            > "No string interpolation"
-            > "Just text"
+            > array.join('')
+            > [1, 2, 3].join("")
+            > string.split(" ")
+            > "first\nsecond".split(" ")
+            > string.chomp("\n")
+            > string.chomp!("\n")
+            > A.foo(2)
             >
             > # good
-            > 'No special symbols'
-            > 'No string interpolation'
-            > 'Just text'
-            > "Wait! What's #{this}!"
-            > ```
-            >
-            > EnforcedStyle: double_quotes
-            >
-            > ```ruby
-            > # bad
-            > 'Just some text'
-            > 'No special chars or interpolation'
-            >
-            > # good
-            > "Just some text"
-            > "No special chars or interpolation"
-            > "Every string in #{project} uses double_quotes"
+            > array.join
+            > [1, 2, 3].join
+            > string.split
+            > "first second".split
+            > string.chomp
+            > string.chomp!
+            > A.foo
             > ```
 
             ### Note
