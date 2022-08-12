@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'asciidoctor'
 require 'yard'
 
 module RubocopTodoCorrector
@@ -37,6 +38,14 @@ module RubocopTodoCorrector
 
     # @return [String]
     def description
+      ::Asciidoctor.convert(
+        docstring,
+        safe: :safe
+      )
+    end
+
+    # @return [String]
+    def docstring
       yard_class_object.docstring
     end
 
