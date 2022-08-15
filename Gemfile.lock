@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rubocop_todo_corrector (0.13.0)
+    rubocop_todo_corrector (0.14.0)
       asciidoctor
       bundler
       thor
