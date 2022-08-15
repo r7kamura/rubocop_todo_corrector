@@ -8,6 +8,7 @@ module RubocopTodoCorrector
   autoload :Commands, 'rubocop_todo_corrector/commands'
   autoload :CopDocumentParser, 'rubocop_todo_corrector/cop_document_parser'
   autoload :CopSourceDetector, 'rubocop_todo_corrector/cop_source_detector'
+  autoload :CopUrlFinder, 'rubocop_todo_corrector/cop_url_finder'
   autoload :DescriptionRenderer, 'rubocop_todo_corrector/description_renderer'
   autoload :GemNamesDetector, 'rubocop_todo_corrector/gem_names_detector'
   autoload :GemVersionDetector, 'rubocop_todo_corrector/gem_version_detector'
