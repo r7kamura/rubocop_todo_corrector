@@ -26,7 +26,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
 
             ## Summary
 
-            Auto-corrected [Style/RedundantArgument](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Style/RedundantArgument).
+            Auto-corrected [Style/RedundantArgument](https://docs.rubocop.org/rubocop/cops_style.html#styleredundantargument).
 
             ## Details
 

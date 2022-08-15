@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'erb'
+require 'open3'
 
 module RubocopTodoCorrector
   class DescriptionRenderer
@@ -43,19 +44,11 @@ module RubocopTodoCorrector
 
     # @return [String]
     def cop_url
-      if gem_name
-        "https://www.rubydoc.info/gems/#{gem_name}/RuboCop/Cop/#{@cop_name}"
-      else
-        "https://www.google.com/search?q=rubocop+#{::URI.encode_www_form_component(@cop_name.inspect)}"
-      end
-    end
-
-    # @return [String, nil]
-    def gem_name
-      @gem_name ||= @cop_source_path[
-        %r{/gems/([\w-]+)-\d+(?:\.\w+)*/lib},
-        1
-      ]
+      CopUrlFinder.call(
+        cop_name: @cop_name,
+        cop_source_path: @cop_source_path,
+        temporary_gemfile_path: @temporary_gemfile_path
+      )
     end
 
     # @return [String]
