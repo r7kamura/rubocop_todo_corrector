@@ -35,10 +35,15 @@ module RubocopTodoCorrector
         cop_document = CopDocumentParser.call(source_path: cop_source_path)
         return unless cop_document
 
+        cop_url = CopUrlFinder.call(
+          cop_name: @cop_name,
+          cop_source_path:,
+          temporary_gemfile_path: @temporary_gemfile_path
+        )
         description = DescriptionRenderer.call(
           cop_document:,
           cop_name: @cop_name,
-          cop_source_path:
+          cop_url:
         )
         ::Kernel.puts(description)
       end

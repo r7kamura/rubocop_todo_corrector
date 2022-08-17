@@ -10,17 +10,17 @@ module RubocopTodoCorrector
     class << self
       # @param [String] cop_document
       # @param [String] cop_name
-      # @param [String] cop_source_path
+      # @param [String] cop_url
       # @return [String]
       def call(
         cop_document:,
         cop_name:,
-        cop_source_path:
+        cop_url:
       )
         new(
           cop_document:,
           cop_name:,
-          cop_source_path:
+          cop_url:
         ).call
       end
     end
@@ -28,11 +28,11 @@ module RubocopTodoCorrector
     def initialize(
       cop_document:,
       cop_name:,
-      cop_source_path:
+      cop_url:
     )
       @cop_document = cop_document
       @cop_name = cop_name
-      @cop_source_path = cop_source_path
+      @cop_url = cop_url
     end
 
     # @return [String]
@@ -41,15 +41,6 @@ module RubocopTodoCorrector
     end
 
     private
-
-    # @return [String]
-    def cop_url
-      CopUrlFinder.call(
-        cop_name: @cop_name,
-        cop_source_path: @cop_source_path,
-        temporary_gemfile_path: @temporary_gemfile_path
-      )
-    end
 
     # @return [String]
     def template_content
