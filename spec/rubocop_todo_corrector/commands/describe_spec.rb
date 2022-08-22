@@ -63,7 +63,23 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             >
             > #### Safety
             >
-            > This cop is unsafe because of the following limitations:  1. This cop matches by method names only and hence cannot tell apart    methods with same name in different classes. 2. This cop may be unsafe if certain special global variables (e.g. `$;`, `$/`) are set.    That depends on the nature of the target methods, of course. For example, the default    argument to join is `$OUTPUT_FIELD_SEPARATOR` (or `$,`) rather than `''`, and if that    global is changed, `''` is no longer a redundant argument.
+            > <div class="paragraph">
+            > <p>This cop is unsafe because of the following limitations:</p>
+            > </div>
+            > <div class="olist arabic">
+            > <ol class="arabic">
+            > <li>
+            > <p>This cop matches by method names only and hence cannot tell apart
+            > methods with same name in different classes.</p>
+            > </li>
+            > <li>
+            > <p>This cop may be unsafe if certain special global variables (e.g. <code>$;</code>, <code>$/</code>) are set.
+            > That depends on the nature of the target methods, of course. For example, the default
+            > argument to join is <code>$OUTPUT_FIELD_SEPARATOR</code> (or <code>$,</code>) rather than <code>''</code>, and if that
+            > global is changed, <code>''</code> is no longer a redundant argument.</p>
+            > </li>
+            > </ol>
+            > </div>
             >
             > #### Examples
             >
