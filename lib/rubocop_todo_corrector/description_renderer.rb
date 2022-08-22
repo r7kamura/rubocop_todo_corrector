@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'asciidoctor'
 require 'erb'
 require 'open3'
 
@@ -41,6 +42,25 @@ module RubocopTodoCorrector
     end
 
     private
+
+    # Convert AsciiDoc to HTML.
+    # @param [String] string
+    # @return [String]
+    def asciidoc(string)
+      ::Asciidoctor.convert(
+        string,
+        safe: :safe
+      )
+    end
+
+    # Prepend quote marker to each line.
+    # @param [String] string
+    # @return [String]
+    def quote(string)
+      string.each_line.map do |line|
+        "> #{line}".strip
+      end.join("\n")
+    end
 
     # @return [String]
     def template_content

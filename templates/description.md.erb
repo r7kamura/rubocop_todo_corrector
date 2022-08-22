@@ -8,14 +8,12 @@ Auto-corrected [<%= @cop_name %>](<%= @cop_url %>).
 
 ### <%= @cop_name %>
 
-<% @cop_document[:description].each_line do |line| -%>
-<%= "> #{line}".strip %>
-<% end -%>
+<%= quote(asciidoc(@cop_document[:description])) %>
 <% if @cop_document[:safety] -%>
 >
 > #### Safety
 >
-> <%= @cop_document[:safety][:text].gsub("\n", " ").strip %>
+<%= quote(asciidoc(@cop_document[:safety][:text])) %>
 <% end -%>
 <% unless @cop_document[:examples].empty? -%>
 >
@@ -27,9 +25,7 @@ Auto-corrected [<%= @cop_name %>](<%= @cop_url %>).
 <% end -%>
 >
 > ```ruby
-<% example[:text].each_line do |line| -%>
-<%= "> #{line}".strip %>
-<% end -%>
+<%= quote(example[:text]) %>
 > ```
 <% end -%>
 <% end -%>
