@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Ryo Nakamura']
   spec.email = ['r7kamura@gmail.com']
 
-  spec.summary = 'Auto-correct offenses defined in .rubocop_todo.yml.'
+  spec.summary = 'Autocorrect offenses defined in .rubocop_todo.yml.'
   spec.homepage = 'https://github.com/r7kamura/rubocop_todo_corrector'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.1'
