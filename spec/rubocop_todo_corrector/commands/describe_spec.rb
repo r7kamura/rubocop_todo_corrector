@@ -22,11 +22,11 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
         subject
         expect(Kernel).to have_received(:puts).with(
           <<~'MARKDOWN'
-            Auto-correct Style/RedundantArgument
+            Autocorrect Style/RedundantArgument
 
             ## Summary
 
-            Auto-corrected [Style/RedundantArgument](https://docs.rubocop.org/rubocop/cops_style.html#styleredundantargument).
+            Autocorrected [Style/RedundantArgument](https://docs.rubocop.org/rubocop/cops_style.html#styleredundantargument).
 
             ## Details
 
