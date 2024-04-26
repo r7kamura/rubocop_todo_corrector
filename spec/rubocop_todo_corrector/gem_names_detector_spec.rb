@@ -13,6 +13,7 @@ RSpec.describe RubocopTodoCorrector::GemNamesDetector do
         %w[
           rubocop-rake
           rubocop-rspec
+          rubocop-rails-omakase
         ]
       )
     end
