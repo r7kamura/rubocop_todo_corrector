@@ -25,7 +25,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Ignore do
     end
 
     let(:tempfile) do
-      Tempfile.new(mode: ::File::RDWR)
+      Tempfile.new(mode: File::RDWR)
     end
 
     context 'with non-existent file path' do

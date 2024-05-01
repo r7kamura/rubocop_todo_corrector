@@ -35,7 +35,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Pick do
     end
 
     let(:tempfile) do
-      Tempfile.new(mode: ::File::RDWR)
+      Tempfile.new(mode: File::RDWR)
     end
 
     context 'without existent .rubocop_todo.yml' do
