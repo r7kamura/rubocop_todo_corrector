@@ -11,7 +11,7 @@ RSpec.describe RubocopTodoCorrector::GemVersionDetector do
 
     it 'returns gem version' do
       is_expected.to eq(
-        '2.10.0'
+        '2.29.1'
       )
     end
   end
