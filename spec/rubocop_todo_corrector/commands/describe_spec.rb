@@ -33,7 +33,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             ### Style/RedundantArgument
 
             > <div class="paragraph">
-            > <p>This cop checks for a redundant argument passed to certain methods.</p>
+            > <p>Checks for a redundant argument passed to certain methods.</p>
             > </div>
             > <div class="admonitionblock note">
             > <table>
@@ -54,6 +54,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             > <div class="content">
             > <pre class="highlight"><code class="language-yaml" data-lang="yaml">Methods:
             >   join: ''
+            >   sum: 0
             >   split: ' '
             >   chomp: "\n"
             >   chomp!: "\n"
@@ -87,6 +88,9 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             > # bad
             > array.join('')
             > [1, 2, 3].join("")
+            > array.sum(0)
+            > exit(true)
+            > exit!(false)
             > string.split(" ")
             > "first\nsecond".split(" ")
             > string.chomp("\n")
@@ -96,6 +100,9 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             > # good
             > array.join
             > [1, 2, 3].join
+            > array.sum
+            > exit
+            > exit!
             > string.split
             > "first second".split
             > string.chomp
