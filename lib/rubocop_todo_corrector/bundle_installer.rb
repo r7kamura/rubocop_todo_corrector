@@ -51,10 +51,12 @@ module RubocopTodoCorrector
       [
         "source 'https://rubygems.org'",
         *@gem_specifications.map do |gem_specification|
-          format(
-            "gem '%<gem_name>s', '%<gem_version>s'",
-            gem_specification
-          )
+          case gem_specification
+          in gem_version: nil
+            format("gem '%<gem_name>s'", gem_specification)
+          else
+            format("gem '%<gem_name>s', '%<gem_version>s'", gem_specification)
+          end
         end
       ].join("\n") << "\n"
     end
