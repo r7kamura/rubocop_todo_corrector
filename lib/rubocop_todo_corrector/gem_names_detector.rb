@@ -29,7 +29,12 @@ module RubocopTodoCorrector
 
     # @return [Array<String>]
     def gem_names
-      requires.grep(/\A[\w-]+\z/) + inherit_gems
+      requires.grep(/\A[\w-]+\z/) + plugins + inherit_gems
+    end
+
+    # @return [Array<String>]
+    def plugins
+      configuration_hash['plugins'] || []
     end
 
     # @return [Array<String>]

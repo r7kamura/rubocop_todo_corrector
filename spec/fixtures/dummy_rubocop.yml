@@ -1,6 +1,6 @@
 inherit_gem:
   rubocop-rails-omakase: rubocop.yml
 
-require:
+plugins:
   - rubocop-rake
   - rubocop-rspec
