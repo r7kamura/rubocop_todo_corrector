@@ -44,10 +44,6 @@ module RubocopTodoCorrector
         rubocop_todo_content.split("\n\n").grep_v(/^#{@cop_name}:$/).join("\n\n")
       end
 
-      def rubocop_todo
-        RubocopTodoParser.call(content: rubocop_todo_content)
-      end
-
       # @return [String]
       def rubocop_todo_content
         rubocop_todo_pathname.read
