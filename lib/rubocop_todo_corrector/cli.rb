@@ -5,6 +5,26 @@ require 'thor'
 module RubocopTodoCorrector
   # Provide CLI sub-commands.
   class Cli < ::Thor
+    desc 'apply', 'Remove target cop section from .rubocop_todo.yml and correct excluded files.'
+    option(
+      :cop_name,
+      type: :string,
+      required: true
+    )
+    option(
+      :only_safe,
+      default: true,
+      type: :boolean
+    )
+    def apply
+      Commands::Apply.call(
+        cop_name: options[:cop_name],
+        only_safe: options[:only_safe],
+        rubocop_todo_path: '.rubocop_todo.yml',
+        temporary_gemfile_path: 'tmp/Gemfile_rubocop_todo_corrector.rb'
+      )
+    end
+
     desc 'bundle', 'Run `bundle install` to install RuboCop related gems.'
     def bundle
       Commands::Bundle.call(
