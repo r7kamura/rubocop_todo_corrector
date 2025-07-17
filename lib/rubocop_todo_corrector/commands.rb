@@ -2,6 +2,7 @@
 
 module RubocopTodoCorrector
   module Commands
+    autoload :Apply, 'rubocop_todo_corrector/commands/apply'
     autoload :Bundle, 'rubocop_todo_corrector/commands/bundle'
     autoload :Clean, 'rubocop_todo_corrector/commands/clean'
     autoload :Correct, 'rubocop_todo_corrector/commands/correct'

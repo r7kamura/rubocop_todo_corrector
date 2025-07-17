@@ -25,6 +25,7 @@ gem install rubocop_todo_corrector
 ```console
 $ rubocop_todo_corrector
 Commands:
+  rubocop_todo_corrector apply                         # Remove target cop section from .rubocop_todo.yml and correct excluded files.
   rubocop_todo_corrector bundle                        # Run `bundle install` to install RuboCop related gems.
   rubocop_todo_corrector clean                         # Remove temporary files.
   rubocop_todo_corrector correct                       # Run `rubocop --auto-correct(-all)`.
