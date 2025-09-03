@@ -104,7 +104,9 @@ module RubocopTodoCorrector
 
       # @return [String]
       def rubocop_todo_content_without_cop
-        rubocop_todo_sections.grep_v(/^#{@cop_name}:$/).join("\n\n")
+        content = rubocop_todo_sections.grep_v(/^#{@cop_name}:$/).join("\n\n")
+        content += "\n" unless content.end_with?("\n")
+        content
       end
 
       # @return [Pathname]
