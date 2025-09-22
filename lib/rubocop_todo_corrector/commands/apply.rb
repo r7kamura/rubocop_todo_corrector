@@ -57,14 +57,9 @@ module RubocopTodoCorrector
         ::Kernel.system(
           { 'BUNDLE_GEMFILE' => @temporary_gemfile_path },
           [
-            'bundle exec rubocop --force-exclusion', autocorrect_option, *excluded_file_paths
+            'bundle exec rubocop --force-exclusion', autocorrect_option, paths_option
           ].join(' ')
         )
-      end
-
-      # @return [String]
-      def autocorrect_arguments
-        ::Shellwords.shelljoin(excluded_file_paths)
       end
 
       # @return [String]
@@ -81,15 +76,19 @@ module RubocopTodoCorrector
         raise "#{rubocop_todo_pathname.to_s.inspect} does not exist." unless rubocop_todo_pathname.exist?
       end
 
-      # @return [Array<String>]
+      # @return [Array<String>, nil]
       def excluded_file_paths
+        return @excluded_file_paths if defined?(@excluded_file_paths)
+
         cop_section = rubocop_todo_sections.grep(/^#{@cop_name}:/).first
         raise unless cop_section
 
-        paths = ::YAML.safe_load(cop_section).dig(@cop_name, 'Exclude')
-        raise unless paths
+        @excluded_file_paths = ::YAML.safe_load(cop_section).dig(@cop_name, 'Exclude')
+      end
 
-        paths
+      # @return [String, nil]
+      def paths_option
+        ::Shellwords.shelljoin(excluded_file_paths) if excluded_file_paths
       end
 
       # @return [String]
