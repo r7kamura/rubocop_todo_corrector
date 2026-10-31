@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'asciidoctor'
   spec.add_dependency 'bundler'
+  spec.add_dependency 'logger'
   spec.add_dependency 'thor'
   spec.add_dependency 'yard'
 end

@@ -4,18 +4,20 @@ PATH
     rubocop_todo_corrector (0.18.2)
       asciidoctor
       bundler
+      logger
       thor
       yard
 
 GEM
   remote: https://rubygems.org/
   specs:
-    asciidoctor (2.0.23)
+    asciidoctor (2.0.26)
     ast (2.4.3)
     diff-lcs (1.5.1)
     json (3.1.0)
     language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
+    logger (1.7.0)
     parallel (2.3.0)
     parser (3.3.13.0)
       ast (~> 2.4.1)

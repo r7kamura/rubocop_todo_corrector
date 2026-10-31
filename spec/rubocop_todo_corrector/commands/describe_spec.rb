@@ -91,6 +91,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             > array.sum(0)
             > exit(true)
             > exit!(false)
+            > string.to_i(10)
             > string.split(" ")
             > "first\nsecond".split(" ")
             > string.chomp("\n")
@@ -103,6 +104,7 @@ RSpec.describe RubocopTodoCorrector::Commands::Describe do
             > array.sum
             > exit
             > exit!
+            > string.to_i
             > string.split
             > "first second".split
             > string.chomp
