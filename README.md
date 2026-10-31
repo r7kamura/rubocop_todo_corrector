@@ -1,7 +1,5 @@
 # RubocopTodoCorrector
 
-[![test](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml/badge.svg)](https://github.com/r7kamura/rubocop_todo_corrector/actions/workflows/test.yml)
-
 Autocorrect offenses defined in `.rubocop_todo.yml`.
 
 This is an internal implementation of [rubocop-todo-corrector](https://github.com/r7kamura/rubocop-todo-corrector) action. See its README for more information about this action.
