@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Autocorrect offenses defined in .rubocop_todo.yml.'
   spec.homepage = 'https://github.com/r7kamura/rubocop_todo_corrector'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.1'
+  spec.required_ruby_version = '>= 3.3'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'asciidoctor'
   spec.add_dependency 'bundler'
+  spec.add_dependency 'logger'
   spec.add_dependency 'thor'
   spec.add_dependency 'yard'
 end

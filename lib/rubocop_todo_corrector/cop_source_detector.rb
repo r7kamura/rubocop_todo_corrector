@@ -39,8 +39,15 @@ module RubocopTodoCorrector
     def capture
       ::Open3.capture2(
         { 'BUNDLE_GEMFILE' => @temporary_gemfile_path },
-        "bundle exec ruby -e 'Bundler.require; print Object.const_source_location(#{cop_class_name.inspect}).first'"
+        "bundle exec ruby -e 'Bundler.require; #{ruby_code}'"
       ).first
+    end
+
+    # Recent RuboCop versions lazy-load cops with autoload, so the constant needs to be loaded before
+    # `Object.const_source_location`. Otherwise it returns the location of the autoload call.
+    # @return [String]
+    def ruby_code
+      "Object.const_get(#{cop_class_name.inspect}); print Object.const_source_location(#{cop_class_name.inspect}).first"
     end
 
     # @return [String]

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'pathname'
-require 'set'
 
 module RubocopTodoCorrector
   module Commands
