@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rubocop_todo_corrector (0.18.2)
+    rubocop_todo_corrector (0.19.0)
       asciidoctor
       bundler
       logger
